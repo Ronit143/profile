@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>SQL code and Concepts</h1> <br><br>
+    <h2> <a href="https://drive.google.com/file/d/1ENqMKpEJf9-W6JO8TDvgJKS9F35cBN6C/view?usp=sharing">click here</a> to download the employees data set 
+    which will be used in the rest of the course</h2>
+    <h3>To use the employees Schema we have to run the following command <br>
+      'use employees'  </h3>
+
+    <ol>
+        <li> <!--select command -->
+            <h2>select items</h2><br>
+            <h3>select <br>&nbsp;&nbsp; * <br> from <br> &nbsp; department;</h3>&nbsp;&nbsp;
+            <P>This command will select all the columns of department table.
+            the output will be all columns of department table
+            </P>
+            <h3>select <br>&nbsp;&nbsp; dept_name <br> from <br> &nbsp; department;</h3>
+            <p>This command will select the department name column of the department table</p>
+        </li>
+
+        <li><!--where command-->
+            <h2>using where</h2><br>
+            <h3>select <br>&nbsp;&nbsp; * <br> from <br> &nbsp; employees <br> where <br> &nbsp;first_name='Parto' ;</h3>
+            <p>This command will select all the columns of employees table where the first name of the 
+                employees will bw parto
+            </p>
+        </li>
+
+        <li><!--and-->
+            <h2>Using and</h2><br>
+            <h3>select <br>&nbsp;&nbsp; * <br> from <br> &nbsp; employees <br> where <br>&nbsp; first_name='Parto' and first_name='Anneke';</h3>
+            <p>This command gives all the columns of employees table for the employees whos first name is Parto and Anneke</p>
+        </li>
+
+        <li><!--`or-->
+            <h2>Using or</h2><br>
+            <h3>select <br>&nbsp;&nbsp; * <br> from <br> &nbsp; employees <br> where <br>&nbsp; first_name='Parto' or last_name='Simmel';</h3>
+            <p>This command gives all the columns of employees table for the employees whos first name is Parto or last name simmel</p>
+        </li>
+
+        <li><!--IN NOT-IN -->
+            <h2>IN NOT-IN </h2><br>
+            <h3>select <br>&nbsp;&nbsp; * <br> from <br> &nbsp; employees <br> where <br>&nbsp; first_name IN ('Georgi','Bezalel','Parto');</h3><br>
+             <p>select all the collumns containing first_name Georgi Bezalel and Parto </p><br>
+            <h3>select <br>&nbsp;&nbsp; * <br> from <br> &nbsp; employees <br> where <br>&nbsp; first_name NOT IN ('Georgi','Bezalel','Parto');</h3>
+             <p> sellect rows except the first names Georgi Bezalel and Parto</p> 
+        </li>
+        <li><!--LIKE-->
+            <h2>Like & Not Like</h2><br>
+            <h3>select <br>&nbsp;&nbsp; * <br> from <br> &nbsp; employees <br> where <br>&nbsp; first_name LIKE ('Mar%');</h3><br>
+            <p>here we have use % sign after Mar to indicate the pattern which we are searching for.It gives the name starting with Mar. Not Like is just opposit of like</p>
+            <h3>select <br>&nbsp;&nbsp; * <br> from <br> &nbsp; employees <br> where <br>&nbsp; first_name LIKE ('%Mar');</h3>
+            <p>name ending with Mar</p>
+            <h3>select <br>&nbsp;&nbsp; * <br> from <br> &nbsp; employees <br> where <br>&nbsp; first_name LIKE ('%Mar%');</h3>
+            <p>mar is somewhere in the individual's first name</p>
+            <h3>select <br>&nbsp;&nbsp; * <br> from <br> &nbsp; employees <br> where <br>&nbsp; first_name LIKE ('Mar_');</h3>
+            <h3>select <br>&nbsp;&nbsp; * <br> from <br> &nbsp; employees <br> where <br>&nbsp; first_name LIKE ('_ _Mar');</h3>
+        </li>
+
+        <li><!--wildcard character-->
+            <h2>Wildcard Character(% _ *)</h2><br>
+            <p>&nbsp;&nbsp; you would need a wildcard character whwnever you wish to put anything on its place </p>
+            <h3>select <br> &nbsp;* <br> from &nbsp; employees <br>where first_name like('%jack%');</h3>
+            <p>this extract the data containing jack in first name</p>
+        </li>
+
+        <li><!--Between And-->
+            <h2>Between-And</h2><br>
+            <h3>select <br>&nbsp;&nbsp; * <br> from <br> &nbsp; employees <br> where <br>&nbsp; hire_date between '1900-01-01' and '2000-01-01';</h3>
+            <P>this command gives the employees who have been hired between the dates</P>
+            <h3>select <br>&nbsp;&nbsp; * <br> from <br> &nbsp; salaries <br> where <br>&nbsp; salary between 66000 and 70000;</h3>
+
+        </li>
+
+        <li><!--Is not null-->
+            <h2>Is Not Null</h2><br>
+            <p>&nbsp;&nbsp;used to extract values that are not null</p><br>
+            <h3>select <br>&nbsp;&nbsp; * <br> from <br> &nbsp; employees <br> where <br>&nbsp; first_name Is Not Null;</h3><br>
+            <p>exactly opposit is</p>
+            <h3>select <br>&nbsp;&nbsp; * <br> from <br> &nbsp; employees <br> where <br>&nbsp; first_name Is Null;</h3>
+        </li>
+
+        <li><!--other comparison operator-->
+            <h2>Other comperison Operators</h2><br>
+            <h3> = implies equals to <br> > implies greater than <br> >= implies greater than or equals To
+            < implies less than <br> <= i implies less than or equals to <br> <> and != implies not equals to </h3><br>
+            <h3>select <br>&nbsp;&nbsp; * <br> from <br> &nbsp; employees <br> where <br>&nbsp; first_name = 'Mark';</h3><br>
+            <h3>select <br>&nbsp;&nbsp; * <br> from <br> &nbsp; employees <br> where <br>&nbsp; first_name != 'Mark';</h3><br>
+            <h3>select <br>&nbsp;&nbsp; * <br> from <br> &nbsp; employees <br> where <br>&nbsp; hire_date >='2000-01-01';</h3>
+        </li>
+
+        <li><!--Distinct-->
+            <h2>Distinct</h2><br>
+            <h3>select <br>&nbsp;&nbsp; gender <br> from <br> &nbsp; employees;</h3>
+            <P> this gives all the row of gender. </P>
+            <h3>select distinct <br>&nbsp;&nbsp; gender <br> from <br> &nbsp; employees;</h3>  
+            <p>this gives only the distinct values of the columns gender i.e only M and F</p>
+        </li>
+
+        <li><!--Aggregate Function-->
+            <h2>Aggregate Functions</h2><br>
+            <h3>count() : count the number of all Non-null record in field <br>
+                sum()   : sum all the non-null values in a column <br>
+                min()   : Return the minimum value for all the list <br>
+                max()   : return the maximum value fro all the list <br>
+                avg()   : calculates the average of all non-null values belonging to a certain column of a table <br><br>
+                select count(emp_no) <br>&nbsp;from <br>&nbsp; employees;<br><br>
+                selet <br>&nbsp;&nbsp; count(distinct first_name) <br> from employees;</h3>
+            
+        </li>
+
+        <li><!--ordere by-->
+            <h2>order by</h2><br>
+            <h3>select <br>&nbsp; * <br> from employees <Br> order by first_name;</Br></h3>
+            <p> this command will arrenge the first name in alpnabetical otdered <br> 
+            there are crtain extension like <h3>asc, desc.</h3> asc stands for ascending order and desc 
+            stands for descending ordered</p>
+            <h3>select <br>&nbsp; * <br> from employees <Br> order by first_name desc;</h3>
+            <p>this will order the column alphabetivally in descending ordered</p><br>
+            <p>this works in number column also</p>
+            <h3>select <br>&nbsp; * <br> from employees <Br> order by emp_no;</Br></h3>   
+            <p>We can ordered by multiple columns in a single command. Suppose we want to order the first name 
+                at first the the second name then we can use the following command </p>
+            <h3>select <br>&nbsp; * <br> from employees <Br> order by first_name, last_name asc;</Br></h3>    
+        </li>
+        <li><!--Group By-->
+            <h2>Group By</h2><br>
+            <p>When working with sql, result can be grouped according to a specific field or fields.
+                Groupby must be placed immediately after the where condition, if any, and just before the 
+                order by clause
+            </p>
+            <h3>select <br>&nbsp; first_name <br> from employees <Br> group by first_name;</h3>
+            <p>this will give the distinct first name </p>   
+            <h3>select <br>&nbsp; count(first_name) <br> from employees <Br> group by first_name;</h3>
+            <h3>select <br>&nbsp; first_name, count(first_name) <br> from employees <Br> group by first_name <br>order by first_name;</h3>   
+
+        </li>  
+        <li><!--Aliases(AS)-->
+            <h2>Aliases(AS)</h2>
+            <h3>select <br>&nbsp; first_name, count(first_name) AS name_count <br> from employees <Br> group by first_name <br>order by first_name;</h3>
+             <p>The heading of the count column  will be changed to name_count</p>
+        </li> 
+        <li><!--Having-->
+             <h2>having</h2><br>
+             <p> Refine the output from the record that dont satisfy some certain conditions. it 
+                is frequently implemented with group by clause. Main difference between where and having 
+                clause is after HAVING, you can have a condition with an aggregate function, while where 
+                can not use aggregate function within its conditions. 
+             </p>
+             <h3>select <br>&nbsp; first_name, count(first_name) AS name_count <br> from employees <Br>where <br>&nbsp; count(first_name)>250 <br> group by first_name <br>order by first_name;</h3>
+                <h4>error= Invalid use of group function</h4>
+             <p> This will give an error massage because here Count() is an aggregate funchion. condition on
+                an aggregate function cannot be executed under WHERE. now lets use the same under having close
+             </p> 
+             <h3>select <br>&nbsp; first_name, count(first_name) AS name_count <br> from employees  <br> group by first_name <br> &nbsp;&nbsp;having <br> &nbsp;&nbsp;count(first_name)>250 <br> order by first_name;</h3>
+             <P>applying two kind of condition in a single code</P>
+             <h3>select <br>&nbsp; first_name, count(first_name) AS name_count <br> from employees  <br>where <br> hire_date > '1999-01-01' <br> group by first_name <br> &nbsp;&nbsp;having <br> &nbsp;&nbsp;count(first_name)>250 <br> order by first_name;</h3>
+             <p> having clause can take condition on both aggregate and non-aggregate finctionbut it cant take bothe at same time</p>  
+             <h3>select <br>&nbsp; first_name, count(first_name) AS name_count <br> from employees  <br> group by first_name <br> &nbsp;&nbsp;having <br> &nbsp;&nbsp;count(first_name)>250 and hire_date > '1999-01-01' <br> order by first_name;</h3>
+             <p>this will give an error massage</p>
+        </li>
+
+        <li><!--Insert-->
+            <h2>Insert</h2><br>
+            <h3>Insert into employees <br>&nbsp;(<br>&nbsp;&nbsp;emp_no, <br>&nbsp;&nbsp;birrth_date,<br>&nbsp;&nbsp;first_name,
+                <br>&nbsp;&nbsp;last_name,<br>&nbsp;&nbsp;gender,<br>&nbsp;&nbsp;hire_date <br>) values <br>
+               (<br>&nbsp;&nbsp; 999901,<br>&nbsp;&nbsp;'1986-04-21',<br>&nbsp;&nbsp;'John',<br>&nbsp;&nbsp;'smith',
+               <br>&nbsp;&nbsp;'M',<br>&nbsp;&nbsp;'2011-01-01'<br>);
+            </h3>
+            <p> While inserting data in a table we should be very much carefull
+                about data type. clicking the information icon of table we can know the data type of a table.
+                Now, To know wheather the data is inserted or not.
+            </p>
+            <h3>select <br>&nbsp; * <br> from employees <Br> order by emp_no desc;</h3>
+            <p>Another important note is that if you put the emp_no as '999901',that is as string, 
+                then sql will automatically convert the type to integer type. But doinf of this is not a good practice.
+                Another thing is if you alter the sequnce of collums then there is not problem but you should 
+                alter the position of corresponding values accordingly.
+            </p>    
+        </li>
+        <li><!--Creating duplicate table-->
+            <h2>Inserting data into a new table(creating duplicate table)</h2><br>
+            <p>At first create a new table</p>
+            <h3> create table department_dup <br>(<br>&nbsp;&nbsp; dept_no CHAR(4) NOT NULL,<br>&nbsp;&nbsp;
+                 dept_name varchar(40) not null <br> );
+            </h3>
+            <p>now to copy the data from department table </p>
+
+            <h3> insert into department_dup <br>(<br>&nbsp;&nbsp; dept_no,<br>&nbsp;&nbsp;dept_name <br>) <br>
+            select <br>&nbsp;* <br> from departments;</h3>
+
+        </li>
+        <li><!--Joining-->
+            <h2>SQL Joining prelimineries</h2>
+            <p>before start joining we have to do following tusks <br>
+               1. changes in department_dup table: <br>&nbsp;&nbsp;
+               insert a record whose department name is “Public Relations”.
+               <br>&nbsp;&nbsp;Delete the record(s) related to department number two('d002')
+               <br>&nbsp;&nbsp;Insert two new records in the “departments_dup” table. Let their values in the “dept_no” column be “d010” and “d011”.
+
+            </p>
+            <p>To do the tusk first of all we have to change the data type of the collums of department_dup
+                table from NOT NULL to null. without that while inserting the dept_name 'Public Relations' there will
+                be error as dept_no can't take null value.
+            </p>
+            <h3>Alter Table department_dup <br> change column dept_no dept_no char(4) NULL;</h3>
+            <p> Same problem will arise when inserting two new dept_no. to avoide that following code 
+                should execute
+            </p>
+            <h3>Alter Table department_dup <br> change column dept_name dept_name varchar(40) NULL;</h3>
+            <p> now the first tusk</p>
+            <h3>insert into department_dup <br>( <br>&nbsp;&nbsp; dept_name <br>) &nbsp;values('Public Relation');</h3>
+            <p>second tusk</p>
+            <h3>delete from department_dup <br> where dept_no='d002';</h3>
+            <p>third tusk</p>
+            <h3>insert into department_dup <br>( <br>&nbsp;&nbsp; dept_no <br>) &nbsp;values('d010'),('d011');</h3>
+            <p>2. perform the following code</p>
+            <h3>create table dept_manager_dup(<br>&nbsp;&nbsp;emp_no int(11) NOT NULL,<br>&nbsp;&nbsp;dept_no char(4) NULL,
+                <br>&nbsp;&nbsp;from_date date NOT NULL,<br>&nbsp;&nbsp;to_date date NULL);
+            </h3>
+            <p>now copy the data of dept_manager table to dept_manager_dup table </p>
+            <h3>insert into dept_manager_dup <br> select * from dept_manager;</h3>
+            <p>Now to insert some extra data</p>
+            <h3>insert into dept_manager_dup(emp_no,from_date) <br>
+              values(999904, '2017-01-01'),<br>&nbsp;&nbsp;&nbsp; (999905, '2017-01-01'),<br>&nbsp;&nbsp;&nbsp;
+              (999906, '2017-01-01'),<br>&nbsp;&nbsp;&nbsp;(999907, '2017-01-01');</h3>
+            <p>now delete the row containing dept_no 'd001' from dept_manager_dup table</p>
+            <h3>delete from dept_manager_dup <br>where <br>&nbsp;&nbsp; dept_no='d001';</h3>
+
+        </li>
+
+        <li><!--Inner join-->
+            <h2>Inner Join</h2>
+            <h3>select m.dept_no, m.emp_no, d.dept_name <br> from dept_manager_dup m <br>
+               inner join department_dup d on m.dept_no=d.dept_no; </h3>
+            <p> hare dept_manager_dup m is basically dept_manager_dup as m. hare the concept of Aliases(AS) is used</p>
+            <p>in the result of the output there will not be any dept_no d001 d002 d010 and d011</p>
+            <p> note: simply jist writting join imply inner join</p>
+
+        </li>
+        <li><!--Handling duplicate values while joining-->
+            <h2>Handling duplicate values while joining(use group by)</h2>
+            <p>we have no duplicat values in our data so first of all let insert some duplicate values</p>
+            <h3>insert into dept_manager_dup <br>
+                 values('110228','d003','1992-03-21','9999-01-01');</h3>
+            <h3>insert into department_dup <br>
+            values('d009','Customer Service');</h3>
+
+            <p> now if you join using previous command to join there will be duplicate values.
+                to avoide that we can use group by command as follows
+            </p>
+
+            <h3>select m.dept_no, m.emp_no, d.dept_name <br> from dept_manager_dup m <br>
+                inner join department_dup d on m.dept_no=d.dept_no <br> group by m.emp_no <br> order by dept_no; </h3>
+            <p>Groupby is applied on emp_no because it is unique</p>
+
+        </li>
+
+
+    </ol>
+</body>
+</html>
